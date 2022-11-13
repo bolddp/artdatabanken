@@ -1,2 +1,3 @@
-# artportalen
-Node.js connector for Swedish species database Artportalen
+# artdatabanken
+
+Node.js connector for Swedish species database Artdatabanken
