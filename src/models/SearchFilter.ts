@@ -1,6 +1,7 @@
 export interface SearchFilter {
   date?: DateFilter;
-  geographics: GeographicsFilter;
+  geographics?: GeographicsFilter;
+  taxon?: TaxonFilter;
 }
 
 export interface GeographicsFilter {
@@ -40,4 +41,16 @@ export interface LatLonCoordinate {
 export interface DateFilter {
   startDate: string;
   endDate: string;
+}
+
+export interface TaxonFilter {
+  scientificNames?: string[];
+  includeUnderlyingTaxa?: boolean;
+  ids?: number[];
+  taxonListOperator?: TaxonListOperator;
+}
+
+export enum TaxonListOperator {
+  Merge = 'Merge',
+  Filter = 'Filter',
 }

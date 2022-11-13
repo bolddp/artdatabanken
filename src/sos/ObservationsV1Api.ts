@@ -10,7 +10,7 @@ export class ObservationsV1Api {
     this.request = request;
   }
 
-  async postObservationSearch(
+  async postSearch(
     searchFilter: SearchFilter,
     pagination: Pagination
   ): Promise<PagedResult<SosObservation>> {

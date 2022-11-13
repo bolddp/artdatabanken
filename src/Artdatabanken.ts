@@ -20,14 +20,16 @@ export class Artdatabanken {
       return axios.request<T>({
         baseURL: ArtdatabankenApiUrl,
         headers: {
-          'Ocp-Apim-Subscription-Key': `TOKEN ${artdatabankenConfig.subscriptionKey}`,
+          'Ocp-Apim-Subscription-Key': artdatabankenConfig.subscriptionKey,
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
         ...config,
       });
     };
-    this.taxon = { v1: new TaxonV1Api(request) };
+    this.taxon = {
+      v1: new TaxonV1Api(extendRequest(request, '/taxonservice/v1')),
+    };
     this.sos = {
       v1: new SosV1Api(
         extendRequest(request, '/species-observation-system/v1')
